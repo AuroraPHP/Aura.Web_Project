@@ -14,7 +14,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "aura/web-kernel": "2.*@dev"
+        "aura/web-kernel": "2.*@dev",
+        "auroraphp/aura-facades"
     },
     "autoload": {
         "psr-0": {
