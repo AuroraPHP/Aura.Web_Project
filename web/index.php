@@ -8,22 +8,17 @@
  * @license http://opensource.org/licenses/bsd-license.php BSD
  *
  */
-use AuraFacades\Facade;
 
 // invoke the project kernel script
 require dirname(__DIR__) . '/vendor/aura/project-kernel/scripts/kernel.php';
 
-// create and invoke a web kernel
-$web_kernel = $di->newInstance('Aura\Web_Kernel\WebKernel');
-
-// Initialize the facade locator service registry thingy
-Facade::setFacadeApplication($web_kernel);
+use Aura\Project_Kernel\ProjectContainer;
 
 // Add aliases here if you want to override the default Aura aliases
-// $aliases = array(
-//     '' => '',
-// );
 
-Facade::registerAliases();
 
+$di = ProjectContainer::factory($base, $loader, $_ENV, null);
+
+// create and invoke a web kernel
+$web_kernel = $di->newInstance('Aura\Web_Kernel\WebKernel');
 $web_kernel();

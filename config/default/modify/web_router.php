@@ -12,12 +12,13 @@
  */
 
 // example route for 'hello world' using request and response services
-$request  = Request::get();
-$response = Response::get();
+$request  = Request::all();
+$response = Response::all();
+
 Router::add('hello', '/')
     ->addValues(array(
-        'controller' => function () use ($request, $response) {
-            $response->content->set('Hello World!');
+        'controller' => function () {
+            Response::all()->content->set('Hello World!');
         }
     ));
 

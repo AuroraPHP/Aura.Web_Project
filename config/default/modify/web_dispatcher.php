@@ -12,6 +12,6 @@
  */
 
 // get the dispatcher service
-$dispatcher = DI::get('web_dispatcher');
+$dispatcher = Dispatcher::all();
 
 // add dispatcher objects below

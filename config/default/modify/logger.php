@@ -12,8 +12,8 @@
  */
 
 // add a log handler for whatever the config mode is
-$mode = Project::getMode();
-$file = Project::getTmpPath("log/{$mode}.log");
-Logger::pushHandler(DI::newInstance('Monolog\Handler\StreamHandler', array(
+$mode = Project::all()->getMode();
+$file = Project::all()->getTmpPath("log/{$mode}.log");
+Logger::all()->pushHandler(Facade::newInstance('Monolog\Handler\StreamHandler', array(
     'stream' => $file,
 )));
